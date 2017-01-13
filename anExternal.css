@@ -1,0 +1,15 @@
+body {
+    background-color: azure;
+}
+h1.centered {
+    text-align: center;
+    font-size: 120%;
+}
+p.dottedlinetext {
+    border-style: dashed;
+}
+h4.rounded {
+    padding: 10px;
+    border-style: solid;
+    border-radius: 16px;
+}
