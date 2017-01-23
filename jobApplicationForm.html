@@ -9,9 +9,28 @@
           href = "formStyle.css" />
 </head>
 <body>
-<div class="container">
+<div class="container" >
 
-<h2>Baby Sitter Application</h2>
+<script type="text/javascript">
+function yesnoCheck() {
+    var ddl = document.getElementById("yesno");
+    var selectedValue = ddl.options[ddl.selectedIndex].value;
+    if (selectedValue == "Yes1") {
+        document.getElementById('ifYes').style.display = 'block';
+        document.getElementById('ifNo').style.display = 'none';
+    } 
+    else if(selectedValue == "No1") {
+        document.getElementById('ifNo').style.display = 'block';
+        document.getElementById('ifYes').style.display = 'none';
+    }
+    else {
+        document.getElementById('ifNo').style.display = 'none';
+        document.getElementById('ifYes').style.display = 'none';
+    }
+}
+</script>
+    
+<h1 style="font-weight: bold">Baby Sitter Application</h1>
 <p>&nbsp;</p>
 <p>This application, once filled out, will enter you into our database of babysitters, and will allow us to personally match you with families in need of a sitter.</p>
 
@@ -19,10 +38,70 @@
 
 	<p>&nbsp;</p>
 
+    <fieldset>
+        <div class="form-group">
+			<label class="control-label">Have you already created a Sitter account?</label>
+			<div class="col-sm-9">
+				<select id="yesno" class="form-control" required name="account" onchange="yesnoCheck()">
+					<option value="" selected="true">(Select One)</option>
+					<option value="Yes1">Yes</option>
+					<option value="No1">No</option>
+                </select>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div id="ifNo" style="display:none">
+            <legend>Create an Account</legend>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Email</label>
+                <div class="col-sm-9">
+                    <input class="form-control" type="text" name="email">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Password</label>
+                <div class="col-sm-9">
+                    <input class="form-control" type="password" name="password">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Repeat password</label>
+                <div class="col-sm-9">
+                    <input class="form-control" type="password" name="repeat_password">
+                </div>
+            </div>
+		</div>
+        <div id="ifYes" style="display:none">
+            <legend>Enter Account Information</legend>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Email</label>
+                <div class="col-sm-9">
+                    <input class="form-control" type="text" name="email">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Password</label>
+                <div class="col-sm-9">
+                    <input class="form-control" type="password" name="password">
+                </div>
+            </div>
+        </div>
+	</fieldset>
+    <br>
+    <br>
+    <p>&nbsp;</p>
+    
 	<fieldset class="form-horizontal" >
 		<legend>Personal Information</legend>
 		<div class="form-group">
 			<label class="col-sm-3 control-label">Full name</label>
+			<div class="col-sm-9">
+				<input class="form-control" type="text" name="name">
+			</div>
+		</div>
+        <div class="form-group">
+			<label class="col-sm-3 control-label">Phone Number</label>
 			<div class="col-sm-9">
 				<input class="form-control" type="text" name="name">
 			</div>
@@ -111,7 +190,7 @@
 	<fieldset>
 		<legend>Availability</legend>
 		<div class="form-group row">
-			<label class="col-sm-12 control-label">Are you legally able to be employed in this country?</label>
+			<label class="col-sm-12 control-label">Are you legally eligible to be employed in the United States?</label>
 			<div class="col-sm-offset-1 col-sm-11">
 				<div class="radio">
 					<label>
@@ -126,7 +205,7 @@
 			</div>
 		</div>
 		<div class="form-group row">
-			<label class="col-sm-12 control-label">What type of position are you seeking? (check all that apply)</label>
+			<label class="col-sm-12 control-label">What type of babysitting position are you seeking? (check all that apply)</label>
 			<div class="col-sm-offset-1 col-sm-11">
 				<div class="checkbox">
 					<label>
@@ -152,70 +231,6 @@
 						Temporary
 					</label>
 				</div>
-			</div>
-		</div>
-        <div class="form-group row">
-            <label class="col-sm-12 control-label">What position are you seeking to apply for? (Select one)</label>
-            <div class="">
-                 </div>
-        </div>
-        <div class="form-group">
-			<label class="col-sm-3 control-label">State</label>
-			<div class="col-sm-9">
-				<select class="form-control" name="state">
-					<option value="" selected="true">Choose a State</option>
-					<option value="AL">Alabama</option>
-					<option value="AK">Alaska</option>
-					<option value="AZ">Arizona</option>
-					<option value="AR">Arkansas</option>
-					<option value="CA">California</option>
-					<option value="CO">Colorado</option>
-					<option value="CT">Connecticut</option>
-					<option value="DE">Delaware</option>
-					<option value="DC">District of Columbia</option>
-					<option value="FL">Florida</option>
-					<option value="GA">Georgia</option>
-					<option value="HI">Hawaii</option>
-					<option value="ID">Idaho</option>
-					<option value="IL">Illinois</option>
-					<option value="IN">Indiana</option>
-					<option value="IA">Iowa</option>
-					<option value="KS">Kansas</option>
-					<option value="KY">Kentucky</option>
-					<option value="LA">Louisiana</option>
-					<option value="ME">Maine</option>
-					<option value="MD">Maryland</option>
-					<option value="MA">Massachusetts</option>
-					<option value="MI">Michigan</option>
-					<option value="MN">Minnesota</option>
-					<option value="MS">Mississippi</option>
-					<option value="MO">Missouri</option>
-					<option value="MT">Montana</option>
-					<option value="NE">Nebraska</option>
-					<option value="NV">Nevada</option>
-					<option value="NH">New Hampshire</option>
-					<option value="NJ">New Jersey</option>
-					<option value="NM">New Mexico</option>
-					<option value="NY">New York</option>
-					<option value="NC">North Carolina</option>
-					<option value="ND">North Dakota</option>
-					<option value="OH">Ohio</option>
-					<option value="OK">Oklahoma</option>
-					<option value="OR">Oregon</option>
-					<option value="PA">Pennsylvania</option>
-					<option value="RI">Rhode Island</option>
-					<option value="SC">South Carolina</option>
-					<option value="SD">South Dakota</option>
-					<option value="TN">Tennessee</option>
-					<option value="TX">Texas</option>
-					<option value="UT">Utah</option>
-					<option value="VT">Vermont</option>
-					<option value="VA">Virginia</option>
-					<option value="WA">Washington</option>
-					<option value="WV">West Virginia</option>
-					<option value="WI">Wisconsin</option>
-					<option value="WY">Wyoming</option>
-				</select>
 			</div>
 		</div>
 		<div class="form-group row">
@@ -262,41 +277,84 @@
 	<fieldset>
 		<legend>Personal Statement</legend>
 		<div class="form-group">
-			<label class="control-label">Why do you deserve this job?</label>
+			<label class="control-label">Why would you make a great babysitter? Why do you dedicate your time to working with children?</label>
 			<textarea class="form-control" name="deserve" rows="6"></textarea>
 		</div>
 		<div class="form-group">
-			<label class="control-label">Describe a recent project</label>
+			<label class="control-label">What activities and skills do you love to teach and share with children?</label>
 			<textarea class="form-control" name="project" rows="6"></textarea>
 		</div>
-	</fieldset>
-
-	<p>&nbsp;</p>
-
-    <fieldset class="form-horizontal" >
-		<legend>Account - Create an Account to be Able to Access Our Sitter Matching Tools and Services</legend>
-		<div class="form-group">
-			<label class="col-sm-3 control-label">Email</label>
-			<div class="col-sm-9">
-				<input class="form-control" type="text" name="email">
-			</div>
+        <div class="form-group">
+			<label class="control-label">Outside of being a babysitter, what are your hobbies and interests?</label>
+			<textarea class="form-control" name="project" rows="6"></textarea>
 		</div>
-		<div class="form-group">
-			<label class="col-sm-3 control-label">Password</label>
-			<div class="col-sm-9">
-				<input class="form-control" type="password" name="password">
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-sm-3 control-label">Repeat password</label>
-			<div class="col-sm-9">
-				<input class="form-control" type="password" name="repeat_password">
-			</div>
+        <div class="form-group">
+			<label class="control-label">Do you speak any other languages, have any special skills, teachable skills, or certifications you'd like us to know about it?</label>
+			<textarea class="form-control" name="project" rows="6"></textarea>
 		</div>
 	</fieldset>
     
     <p>&nbsp;</p>
 
+    <fieldset>
+		<legend>Describe below your Childcare Experience</legend>
+        <label class="col-sm-12 control-label">I have babysitting experience with the following ages:</label>
+			<div class="col-sm-offset-1 col-sm-11">
+				<div class="checkbox">
+					<label>
+						<input type="checkbox" name="position_pt" value="infants">
+						Infants
+					</label>
+				</div>
+				<div class="checkbox">
+					<label>
+						<input type="checkbox" name="position_ft" value="toddlers">
+						Toddlers
+					</label>
+				</div>
+				<div class="checkbox">
+					<label>
+						<input type="checkbox" name="position_sl" value="preschoolers">
+						Preschoolers
+					</label>
+				</div>
+				<div class="checkbox">
+					<label>
+						<input type="checkbox" name="position_tp" value="k-5">
+						K-5
+					</label>
+				</div>
+                <div class="checkbox">
+					<label>
+						<input type="checkbox" name="position_tp" value="preteen">
+						Preteen
+					</label>
+				</div>
+                <div class="checkbox">
+					<label>
+						<input type="checkbox" name="position_tp" value="teenagers">
+						Teenagers
+					</label>
+				</div>
+                <div class="checkbox">
+					<label>
+						<input type="checkbox" name="position_tp" value="specialneeds">
+						Special Needs
+					</label>
+				</div>
+                <div class="checkbox">
+					<label>
+						<input type="checkbox" name="position_tp" value="multiples">
+						Multiples (Twins, triplets)
+					</label>
+				</div>
+			</div>
+            <div class="form-group">
+                <label class="control-label">Use this final space below to describe your past childcare experience in paragraph form. Provide us with any other relevant information that you think we might like to know.</label>
+                <textarea class="form-control" name="deserve" rows="6"></textarea>
+            </div>
+    </fieldset>
+    
 	<input class="btn btn-primary btn-lg" type="submit" value="Submit form">
 
 	<p>&nbsp;</p>
